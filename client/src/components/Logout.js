@@ -1,4 +1,5 @@
 import React from "react"
+import '../App.css'
 
 
 const Logout = ({ loggedIn }) => {
@@ -23,7 +24,7 @@ const Logout = ({ loggedIn }) => {
 
     return (
 
-        <button onClick={handleClick}>
+        <button className="logout-button" onClick={handleClick}>
             Logout
         </button>
     )

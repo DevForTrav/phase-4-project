@@ -19,6 +19,6 @@ class SolutionsController < ApplicationController
     private
 
     def solution_params
-        params.permit(:description, :immediate_action, :first_step, :when)
+        params.permit(:description, :immediate_action, :first_step, :when, :thought_id)
     end
 end

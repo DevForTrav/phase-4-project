@@ -41,7 +41,7 @@ const UserThoughts = ( props ) => {
                 <h3 >{thought.title}</h3>
                 <p>{thought.description}</p>
                 <EditThoughtForm  didEditThought={setDidEditThought} didEditThoughtValue={didEditThought} title={thought.title} description={thought.description} occurences={thought.occurences} thoughtId={thought.id} />
-                <SolutionForm />
+                <SolutionForm thoughtId={thought.id} />
                 <ThoughtDeleteButton thoughtId={thought.id} userId={thought.user_id} didDeleteThought={setDidDeleteThought} />
                 {/* { renderSolutionForm ? true : null} */}
             </div>

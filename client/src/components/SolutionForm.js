@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const SolutionForm = () => {
+const SolutionForm = (props) => {
    // solution properties
    const [renderSolutionForm, setRenderSolutionForm] = useState(false)
    const [solutionDescription, setSolutionDescription] = useState('')
@@ -18,21 +18,26 @@ const SolutionForm = () => {
                description: solutionDescription,
                immediate_action: immediateAction,
                first_step: firstStep,
-               when
+               when,
+               thought_id: props.thoughtId
          })
       }).then((res) => {
          if (res.ok) {
                res.json().then((solution) => {
                   console.log(solution)
-
                })
+         } else {
+            console.log(res)
          }
       })
    }
 
+   const handleSubmit = () => {
+      createNewSolution()
+   }
+
    const handleClick = () => {
       setRenderSolutionForm(!renderSolutionForm)
-      createNewSolution()
    }
 
    return (
@@ -41,7 +46,7 @@ const SolutionForm = () => {
          {renderSolutionForm ? 
             <>
                <p>Solution</p>
-               <form onSubmit={handleClick}>
+               <form onSubmit={handleSubmit}>
                   <label>
                      Description:
                      <input 

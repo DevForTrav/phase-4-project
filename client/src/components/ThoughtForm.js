@@ -4,6 +4,7 @@ const ThoughtForm = (props) => {
 
 
     const [title, setTitle] = useState('')
+    const [errors, setErrors] = useState([])
     const [thoughtDescription, setThoughtDescription] = useState('')
     // const [userId, setUserId] = useState('')
     const [occurences, setOccurences] = useState(0)
@@ -27,7 +28,12 @@ const ThoughtForm = (props) => {
                     props.userThoughtForm(false)
                 })
             } else {
-                console.log(res.json())
+                res.json().then((data) => {
+                    console.log(data.errors)
+                    setErrors(data.errors)
+                    debugger
+                })
+                
             }
 
         })
@@ -72,6 +78,7 @@ const ThoughtForm = (props) => {
                     </input>
                 </label>
                 <input type="submit" value="Create" ></input>
+                { errors ? <p>{errors}</p> : null}
             </form>
         </div>
     )

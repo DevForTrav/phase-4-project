@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div>
-      <Logout loggedIn={setIsLoggedIn} />
+      <Logout className={"logoutButton"} loggedIn={setIsLoggedIn} />
       <UserPage loggedIn={setIsLoggedIn}/>
     </div>
   );
